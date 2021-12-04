@@ -1,12 +1,10 @@
-import pinboardBackground from "./pinboardBackground.jpg";
+import Dictionary from "./Dictonary";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={pinboardBackground} alt="Pinboard background"></img>
-      </header>
+      <Dictionary />
     </div>
   );
 }

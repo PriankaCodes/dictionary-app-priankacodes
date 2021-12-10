@@ -6,4 +6,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.Results {
+  display: block;
+  margin: 0 auto;
+  background-color: white;
+  max-width: 600px;
 }

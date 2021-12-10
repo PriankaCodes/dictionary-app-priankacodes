@@ -1,10 +1,11 @@
 import React from "react";
 import Meanings from "./Meanings";
+import "./index.css";
 
 export default function Results(props) {
   if (props.defined) {
     return (
-      <div>
+      <div className="Results">
         <h2>{props.defined.word}</h2>
         {props.defined.meanings.map(function (meaning, index) {
           return (

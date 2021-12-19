@@ -19,7 +19,7 @@ export default function Results(props) {
         <section>
           <Postit
             color="linear-gradient(135deg, #FDEB71 10%, #F8D800 100%);"
-            transform="translate(112px,39px)"
+            transform="translate(112px,37px)"
             width="300px;"
             height="300px;"
           >

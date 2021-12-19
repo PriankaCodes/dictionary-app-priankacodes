@@ -1,41 +1,74 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
+import "./Dictionary.css";
 
-export default function Dictionary() {
-  let [keyword, setKeyword] = useState("");
+export default function Dictionary(props) {
+  let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
+  let [loaded, setloaded] = useState(false);
+  let [photos, setPhotos] = useState(null);
 
-  function handleResponse(response) {
+  function handleDictionaryResponse(response) {
     setResults(response.data[0]);
   }
 
-  function search(event) {
-    event.preventDefault();
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+  function handlePexelsResponse(response) {
+    setPhotos(response.data);
+  }
 
-    axios.get(apiUrl).then(handleResponse);
+  function search() {
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+    axios.get(apiUrl).then(handleDictionaryResponse);
+
+    let pexelsApiKey =
+      "563492ad6f91700001000001f6ba68873d9c42fc917f138f5ab73a56";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=6`;
+    let headers = { Authorization: `Bearer ${pexelsApiKey}` };
+
+    axios
+      .get(pexelsApiUrl, {
+        headers: headers,
+      })
+      .then(handlePexelsResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
   }
 
   function searchedWord(event) {
     setKeyword(event.target.value);
   }
 
-  return (
-    <div>
-      <h1>Dictionary</h1>
-      <form onSubmit={search}>
-        <input
-          type="search"
-          placeholder="Search for a word"
-          autoFocus={true}
-          onChange={searchedWord}
-        ></input>
-        <button type="submit" onSubmit={search}>
-          Go
-        </button>
-      </form>
-      <Results defined={results} />
-    </div>
-  );
+  function load() {
+    setloaded(true);
+    search();
+  }
+
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <h1>Look up a word</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="search"
+            placeholder="eg. dog, wine, cheese, travel"
+            autoFocus={true}
+            onChange={searchedWord}
+          ></input>
+          <button type="submit" onSubmit={handleSubmit}>
+            <strong>Go</strong>
+          </button>
+        </form>
+        <Results defined={results} />
+        <Photos photos={photos} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading";
+  }
 }

@@ -1,17 +1,30 @@
+html {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  background-color: #002348;
+}
+
 body {
-  margin: 0;
-  background-image: url(./pinboardBackground.jpg);
+  padding: 20px;
+  background-image: url(./dictionaryvisionboard.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 1200px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
 }
 
-.Results {
+section {
   display: block;
   margin: 0 auto;
-  background-color: white;
-  max-width: 600px;
+  padding-left: 10px;
+  margin-bottom: 120px;
+}
+
+.Synonyms span {
+  padding: 3px;
 }

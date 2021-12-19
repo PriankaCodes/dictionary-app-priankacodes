@@ -1,0 +1,25 @@
+.Dictionary button {
+  padding: 10px 20px;
+  background-color: #5d9fc7;
+  font-size: 24px;
+  color: white;
+  border: grey 1px solid;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.Dictionary input {
+  width: 450px;
+  padding: 10px 20px;
+  margin: 0px 10px 10px 50px;
+  border: grey 1px solid;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.Dictionary h1 {
+  margin: 72px 10px 0px 20px;
+  color: #150c64;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 270px;
+}

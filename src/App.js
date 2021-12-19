@@ -4,7 +4,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Dictionary />
+      <Dictionary defaultKeyword="travel" />
       <h6>
         Hand coded by PriankaCodes.
         <a href="https://github.com/PriankaCodes/dictionary-app-priankacodes">

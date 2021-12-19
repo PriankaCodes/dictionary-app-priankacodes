@@ -6,9 +6,9 @@ function App() {
     <div className="App">
       <Dictionary defaultKeyword="travel" />
       <h6>
-        Hand coded by PriankaCodes.
+        Hand coded by PriankaCodes. Check me out on{" "}
         <a href="https://github.com/PriankaCodes/dictionary-app-priankacodes">
-          GitHub Link
+          GitHub.
         </a>
       </h6>
     </div>
